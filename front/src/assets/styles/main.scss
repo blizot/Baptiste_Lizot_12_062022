@@ -1,8 +1,9 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@use './utils/variables';
+@use './utils/functions';
+@use './utils/mixins';
+
+@use './base/reset';
+@use './base/normalize';
+@use './base/typography';
+
+@use './components/header';

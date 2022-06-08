@@ -1,0 +1,25 @@
+@use './variables' as *;
+
+@function color($name, $shade: 'base', $degree: '') {
+  $color: map-get(map-get($colors, $name), $shade);
+
+  @if $degree != '' {
+    $color: map-get(map-get(map-get($colors, $name), $shade), $degree);
+  }
+
+  @return $color;
+}
+
+@function hslac($color, $alpha) {
+  @return hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+
+@function get-breakpoint($size) {
+  @if type-of($size) == string {
+    $width: map-get($breakpoints, $size);
+    @return '(min-width: #{$width})';
+  }
+  @if type-of($size) == number {
+    @return '(min-width: #{$size})';
+  }
+}

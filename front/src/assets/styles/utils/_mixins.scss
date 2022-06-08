@@ -1,0 +1,7 @@
+@use './functions' as *;
+
+@mixin breakpoint($size) {
+  @media only screen and #{get-breakpoint($size)} {
+    @content;
+  }
+}

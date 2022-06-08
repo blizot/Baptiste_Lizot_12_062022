@@ -1,0 +1,45 @@
+$color-primary: hsl(0, 100%, 50%);
+$color-light: hsl(0, 0%, 100%);
+$color-dark: hsl(0, 0%, 0%);
+$color-accent-first: hsl(204, 100%, 65%);
+$color-accent-second: hsl(48, 98%, 52%);
+$color-accent-third: hsl(343, 98%, 65%);
+
+$colors: (
+  'primary': (
+    'base': $color-primary,
+    'darker': darken($color-primary, 5),
+  ),
+  'light': (
+    'base': $color-light,
+    'darker': (
+      'I': darken($color-light, 2),
+      'II': darken($color-light, 12),
+      'III': darken($color-light, 18),
+    ),
+  ),
+  'dark': (
+    'base': $color-dark,
+    'lighter': (
+      'I': lighten($color-dark, 17),
+      'II': lighten($color-dark, 50),
+    ),
+  ),
+  'accent': (
+    'I': $color-accent-first,
+    'II': $color-accent-second,
+    'III': $color-accent-third,
+  ),
+);
+
+$breakpoint-M: 768px;
+$breakpoint-L: 992px;
+$breakpoint-XL: 1200px;
+$breakpoint-XXL: 1440px;
+
+$breakpoints: (
+  'medium': $breakpoint-M,
+  'large': $breakpoint-L,
+  'huge': $breakpoint-XL,
+  'max': $breakpoint-XXL,
+);

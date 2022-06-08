@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+
+  &:focus {
+    outline: hsl(0, 0%, 0%) solid 2px;
+    border-radius: 0.25rem;
+  }
+}
+
+nav {
+  position: relative;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(0, 0%, 0%);
+  display: block;
+}
+
+fieldset {
+  min-width: auto;
+}
+
+.screenreader-only {
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+}

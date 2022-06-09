@@ -1,0 +1,62 @@
+@use '../components/' as *;
+
+.macro {
+  width: 100%;
+  background-color: color('light', 'darker', 'I');
+  border-radius: 0.75rem;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  &__image {
+    height: 1.25rem;
+    aspect-ratio: 1/1;
+
+    &-container {
+      width: 3.75rem;
+      height: 3.75rem;
+      border-radius: 0.75rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.calorie {
+        background-color: hslac(color('primary'), 0.1);
+      }
+
+      &.protein {
+        background-color: hslac(color('accent', 'I'), 0.1);
+      }
+
+      &.carbohydrate {
+        background-color: hslac(color('accent', 'II'), 0.1);
+      }
+
+      &.lipid {
+        background-color: hslac(color('accent', 'III'), 0.1);
+      }
+    }
+  }
+
+  &__text {
+    height: 3.75rem;
+    padding: 0.25rem 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+
+  &__value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: color('dark', 'lighter', 'I')
+  }
+
+  &__name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: color('dark', 'lighter', 'II');
+    text-transform: capitalize;
+  }
+}

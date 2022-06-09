@@ -9,7 +9,9 @@
 @use './components/header';
 @use './components/sidebar';
 @use './components/welcome';
+@use './components/macro';
 
 @use './layouts/dashboard';
+@use './layouts/macros';
 
 @use './pages/app';

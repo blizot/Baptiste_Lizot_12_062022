@@ -1,0 +1,14 @@
+.dashboard {
+  padding: 3.5rem;
+  display: grid;
+  grid-template: repeat(3, auto) / repeat(4, 1fr);
+  gap: 2.5rem;
+  grid-template-areas: 
+    "welcome welcome welcome welcome"
+    "daily daily daily macros"
+    "duration radar score macros";
+}
+
+.welcome {
+  grid-area: welcome;
+}

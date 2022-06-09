@@ -8,3 +8,8 @@
 
 @use './components/header';
 @use './components/sidebar';
+@use './components/welcome';
+
+@use './layouts/dashboard';
+
+@use './pages/app';

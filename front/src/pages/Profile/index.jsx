@@ -1,5 +1,7 @@
+import Dashboard from '../../layouts/Dashboard'
+
 function Profile() {
-  return
+  return <Dashboard />
 }
 
 export default Profile

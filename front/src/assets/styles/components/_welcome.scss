@@ -1,0 +1,15 @@
+@use '../components/' as *;
+
+.welcome {
+  margin-bottom: 2.5rem;
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 2.25rem;
+
+    &--highlight {
+      color: color('primary');
+    }
+  }
+}

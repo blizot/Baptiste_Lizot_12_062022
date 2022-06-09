@@ -13,8 +13,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
     <Router>
+      <Navigation />
       <App>
-        <Navigation />
         <Routes>
           <Route path="/" element={''}></Route>
           <Route path="me" element={<Profile />}></Route>

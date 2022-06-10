@@ -5,7 +5,7 @@
   box-sizing: border-box;
   font-family: sans-serif;
 
-  &:focus {
+  &:focus-visible {
     outline: hsl(0, 0%, 0%) solid 2px;
     border-radius: 0.25rem;
   }

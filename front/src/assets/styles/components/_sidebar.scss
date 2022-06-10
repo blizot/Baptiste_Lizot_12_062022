@@ -34,7 +34,7 @@
       justify-content: center;
       align-items: center;
 
-      &:hover, &:focus, &--active {
+      &:hover, &:focus-visible, &--active {
         box-shadow: inset 0 0 2rem hslac(color('primary'), 0.5);
       }
 

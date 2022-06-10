@@ -1,19 +1,5 @@
 @use '../pages/' as *;
 
 .app {
-  padding-left: 6.5rem;
-  height: calc(100vh - 6.5rem + 2px);
-  overflow: auto;
-
-  scrollbar-color: color('primary') color('dark');
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: color('primary');
-    border-radius: 0.5rem;
-  }
-  &::-webkit-scrollbar-track {
-    background: color('dark');
-  }
+  padding: 6.25rem 0 0 6.25rem;
 }

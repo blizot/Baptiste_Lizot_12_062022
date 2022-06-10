@@ -5,6 +5,12 @@
   box-shadow: 0 0 1rem color('dark');
   display: flex;
   align-items: center;
+  height: 6.25rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 
   &__logo {
     min-height: 3.75rem;
@@ -32,7 +38,6 @@
 
       &--active {
         text-decoration: underline color('primary');
-        pointer-events: none;
       }
     }
   }

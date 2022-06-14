@@ -1,3 +1,5 @@
+import { useEffect, useState, useDeferredValue } from 'react';
+
 import {
   BarChart,
   Bar,
@@ -53,6 +55,20 @@ function DailyChart() {
     },
   ]
 
+  const [width, setWidth] = useState('100%')
+  const deferredWidth = useDeferredValue(width)
+
+  useEffect(() => {
+    function handleResize() {
+      setWidth(document.querySelector('.chart__daily')?.clientWidth - 32)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  })
+
   const CustomLegend = (props) => {
     const { payload } = props
 
@@ -99,7 +115,7 @@ function DailyChart() {
 
   return (
     <article className="chart__daily">
-      <ResponsiveContainer width="100%" height={280}>
+      <ResponsiveContainer width={deferredWidth} height={280}>
         <BarChart data={data}>
           <CartesianGrid 
             strokeDasharray={4}

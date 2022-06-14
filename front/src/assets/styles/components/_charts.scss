@@ -5,6 +5,7 @@
     background-color: color('light', 'darker', 'I');
     padding: 1.5rem;
     border-radius: 0.75rem;
+    overflow: hidden;
 
     &--burntCalories {
       fill: color('primary');

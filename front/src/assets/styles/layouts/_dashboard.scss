@@ -16,3 +16,9 @@
 .macros {
   grid-area: macros;
 }
+
+.chart {
+  &__daily {
+    grid-area: daily;
+  }
+}

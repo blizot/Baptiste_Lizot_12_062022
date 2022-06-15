@@ -1,6 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 
-function DurationChart() {
+function SessionsChart() {
   const data = [
     {
       day: 1,
@@ -34,14 +34,14 @@ function DurationChart() {
 
   const CustomLegend = () => {
     return (
-      <h2 className="chart__duration-title">
+      <h2 className="chart__sessions-title">
         Durée moyenne des sessions
       </h2>
     )
   }
 
   return (
-    <article className="chart chart__duration">
+    <article className="chart chart__sessions">
       <ResponsiveContainer width={242} aspect={1}>
         <LineChart data={data}>
           <XAxis
@@ -88,7 +88,7 @@ function DurationChart() {
             dot={false}
             unit=" min"
             strokeWidth={3}
-            className="chart__duration--length"
+            className="chart__sessions--length"
           />
         </LineChart>
       </ResponsiveContainer>
@@ -96,4 +96,4 @@ function DurationChart() {
   )
 }
 
-export default DurationChart
+export default SessionsChart

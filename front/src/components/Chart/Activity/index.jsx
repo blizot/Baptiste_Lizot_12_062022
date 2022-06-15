@@ -2,7 +2,7 @@ import { useEffect, useState, useDeferredValue } from 'react';
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 
-function DailyChart() {
+function ActivityChart() {
   const data = [
     {
       weight: 69.8,
@@ -50,7 +50,7 @@ function DailyChart() {
   const deferredWidth = useDeferredValue(width)
 
   function handleResize() {
-    const chartContainer = document.querySelector('.chart__daily')
+    const chartContainer = document.querySelector('.chart__activity')
     const computedStyle = getComputedStyle(chartContainer)
     let chartWidth = chartContainer.clientWidth
     chartWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight)
@@ -75,22 +75,22 @@ function DailyChart() {
     const { payload } = props
 
     return (
-      <div className='chart__daily-legend'>
-        <h2 className="chart__daily-legend-title">Activité quotidienne</h2>
-        <ul className="chart__daily-legend-description">
+      <div className='chart__activity-legend'>
+        <h2 className="chart__activity-legend-title">Activité quotidienne</h2>
+        <ul className="chart__activity-legend-description">
           {payload.map((entry, index) => (
             <li
-              className={`recharts-legend-item legend-item-${index + 1} chart__daily-legend-description-item`}
+              className={`recharts-legend-item legend-item-${index + 1} chart__activity-legend-description-item`}
               key={`item-${index}`}
             >
               <svg className="recharts-surface" width="10" height="10" viewBox="0 0 32 32" version="1.1">
                 <path cx="16" cy="16" 
                   type={entry.type} 
-                  className={`recharts-symbols chart__daily-legend-description-${entry.type}--${entry.dataKey}`} 
+                  className={`recharts-symbols chart__activity-legend-description-${entry.type}--${entry.dataKey}`} 
                   transform="translate(16, 16)" d="M16,0A16,16,0,1,1,-16,0A16,16,0,1,1,16,0"
                 ></path>
               </svg>
-              <span className="recharts-legend-item-text chart__daily-legend-description-text">
+              <span className="recharts-legend-item-text chart__activity-legend-description-text">
                 {entry.value}
               </span>
             </li>
@@ -116,7 +116,7 @@ function DailyChart() {
   }
 
   return (
-    <article className="chart chart__daily">
+    <article className="chart chart__activity">
       <BarChart
         data={data}
         width={deferredWidth}
@@ -184,7 +184,7 @@ function DailyChart() {
           unit="kg"
           barSize={8}
           shape={<CustomShape />}
-          className="chart__daily--weight"
+          className="chart__activity--weight"
         />
         <Bar
           yAxisId="hiddenAxis"
@@ -193,11 +193,11 @@ function DailyChart() {
           unit="kCal"
           barSize={8}
           shape={<CustomShape />}
-          className="chart__daily--burntCalories"
+          className="chart__activity--burntCalories"
         />
       </BarChart>
     </article>
   )
 }
 
-export default DailyChart
+export default ActivityChart

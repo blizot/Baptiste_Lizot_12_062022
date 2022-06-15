@@ -1,15 +1,15 @@
 import Welcome from '../../components/Welcome'
 import Macros from '../../layouts/Macros'
-import DailyChart from '../../components/Chart/Daily'
-import DurationChart from '../../components/Chart/Duration'
+import ActivityChart from '../../components/Chart/Activity'
+import SessionsChart from '../../components/Chart/Sessions'
 import PerformanceChart from '../../components/Chart/Performance'
 
 function Dashboard() {
   return (
     <main className='dashboard'>
       <Welcome name='Thomas' />
-      <DailyChart />
-      <DurationChart />
+      <ActivityChart />
+      <SessionsChart />
       <PerformanceChart />
       <Macros/>
     </main>

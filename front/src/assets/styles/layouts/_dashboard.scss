@@ -5,8 +5,8 @@
   gap: 2.5rem;
   grid-template-areas: 
     "welcome welcome welcome welcome"
-    "daily daily daily macros"
-    "duration performance score macros";
+    "activity activity activity macros"
+    "sessions performance score macros";
 }
 
 .welcome {
@@ -18,12 +18,12 @@
 }
 
 .chart {
-  &__daily {
-    grid-area: daily;
+  &__activity {
+    grid-area: activity;
   }
 
-  &__duration {
-    grid-area: duration;
+  &__sessions {
+    grid-area: sessions;
   }
 
   &__performance {

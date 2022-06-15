@@ -4,7 +4,7 @@
   border-radius: 0.75rem;
   overflow: hidden;
 
-  &__daily {
+  &__activity {
     background-color: color('light', 'darker', 'I');
     padding: 1.5rem;
 
@@ -62,7 +62,7 @@
     }
   }
 
-  &__duration {
+  &__sessions {
     background-color: color('primary');
     background-image: linear-gradient(
       to right,

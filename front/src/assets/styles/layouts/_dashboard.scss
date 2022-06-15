@@ -6,7 +6,7 @@
   grid-template-areas: 
     "welcome welcome welcome welcome"
     "daily daily daily macros"
-    "duration radar score macros";
+    "duration performance score macros";
 }
 
 .welcome {
@@ -24,5 +24,9 @@
 
   &__duration {
     grid-area: duration;
+  }
+
+  &__performance {
+    grid-area: performance;
   }
 }

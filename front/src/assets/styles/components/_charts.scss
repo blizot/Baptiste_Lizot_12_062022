@@ -1,18 +1,19 @@
 @use '../components/' as *;
 
 .chart {
+  border-radius: 0.75rem;
+  overflow: hidden;
+
   &__daily {
     background-color: color('light', 'darker', 'I');
     padding: 1.5rem;
-    border-radius: 0.75rem;
-    overflow: hidden;
 
     &--burntCalories {
       fill: color('primary');
     }
 
     &--weight {
-      fill: color('dark', 'lighter', 'I')
+      fill: color('dark', 'lighter', 'I');
     }
 
     &-legend {
@@ -43,9 +44,9 @@
           &--burntCalories {
             fill: color('primary');
           }
-      
+
           &--weight {
-            fill: color('dark', 'lighter', 'I')
+            fill: color('dark', 'lighter', 'I');
           }
         }
       }
@@ -58,6 +59,32 @@
     & .recharts-cartesian-axis-line,
     & .recharts-cartesian-grid-horizontal line {
       stroke: color('dark', 'lighter', 'II');
+    }
+  }
+
+  &__duration {
+    background-color: color('primary');
+    background-image: linear-gradient(
+      to right,
+      color('primary') calc(calc(100% / 7) * 5),
+      color('primary', 'darker') calc(calc(100% / 7) * 5)
+    );
+    padding: 1rem;
+
+    &-title {
+      color: color('light');
+      font-size: 1rem;
+      padding: 0 1rem;
+    }
+
+    &--length path {
+      stroke: color('light')
+    }
+
+    // edit Recharts
+    & .recharts-cartesian-axis-tick-value,
+    & .recharts-dot {
+      fill: color('light');
     }
   }
 }

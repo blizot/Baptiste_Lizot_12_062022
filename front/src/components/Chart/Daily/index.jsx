@@ -1,14 +1,6 @@
 import { useEffect, useState, useDeferredValue } from 'react';
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend
-} from 'recharts'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 
 function DailyChart() {
   const data = [
@@ -124,7 +116,7 @@ function DailyChart() {
   }
 
   return (
-    <article className="chart__daily">
+    <article className="chart chart__daily">
       <BarChart
         data={data}
         width={deferredWidth}

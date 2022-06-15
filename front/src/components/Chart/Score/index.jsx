@@ -7,7 +7,6 @@ function ScoreChart() {
   const CustomLegend = () => {
     return (
       <>
-        <h2 className="chart__score-title">Score</h2>
         <p className="chart__score-legend-amount">{parseInt(score * 100)}%</p>
         <p className="chart__score-legend-text">de votre objectif</p>
       </>
@@ -16,7 +15,8 @@ function ScoreChart() {
 
   return (
     <article className="chart chart__score">
-      <PieChart width={274} height={274}>
+      <h2 className="chart__score-title">Score</h2>
+      <PieChart width={272} height={272}>
         <Pie
           data={[{ full: 1 }]}
           dataKey="full"

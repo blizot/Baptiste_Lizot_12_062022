@@ -23,10 +23,11 @@ function PerformanceChart() {
 
   return (
     <article className="chart chart__performance">
+      <h2 className="chart__performance-title">Performance</h2>
       <RadarChart
         data={data.data}
-        width={274}
-        height={274}
+        width={272}
+        height={272}
         outerRadius={90}
         startAngle={-150}
         endAngle={210}

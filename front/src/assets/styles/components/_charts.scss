@@ -69,16 +69,28 @@
       color('primary') calc(calc(100% / 7) * 5),
       color('primary', 'darker') calc(calc(100% / 7) * 5)
     );
-    padding: 1rem;
+    padding: 1.75rem;
+    position: relative;
+
+    @media only screen and (min-width: 1440px) {
+      padding: 1rem;
+    }
 
     &-title {
+      position: absolute;
       color: color('light');
       font-size: 1rem;
-      padding: 0 1rem;
+      font-weight: 500;
+      margin-right: 2rem;
+      padding: 0.5rem;
+
+      @media only screen and (min-width: 1440px) {
+        padding: 0.5rem 1rem;
+      }
     }
 
     &--length path {
-      stroke: color('light')
+      stroke: color('light');
     }
 
     // edit Recharts
@@ -92,6 +104,11 @@
     background-color: color('dark', 'lighter', 'I');
     display: flex;
     justify-content: center;
+    align-items: center;
+
+    &-title {
+      display: none;
+    }
 
     &-fill {
       fill: color('primary');
@@ -101,8 +118,11 @@
     // edit Recharts
     & .recharts-polar-angle-axis-tick-value {
       fill: color('light');
-      font-size: 0.75rem;
+      font-size: 0.95rem;
       padding: 0.25rem;
+      @media only screen and (min-width: 1440px) {
+        font-size: 0.75rem;
+      }
     }
     & .recharts-polar-grid-concentric path {
       stroke: color('light');
@@ -114,12 +134,17 @@
 
   &__score {
     background-color: color('light', 'darker', 'I');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 
     &-title {
       position: absolute;
-      top: -5.5rem;
+      top: 1.5rem;
       left: 1.5rem;
       font-size: 1rem;
+      font-weight: 500;
     }
 
     &-fill {
@@ -132,13 +157,13 @@
         text-align: center;
         font-size: 3rem;
         font-weight: 700;
-        color: color('dark', 'lighter', 'I')
+        color: color('dark', 'lighter', 'I');
       }
 
       &-text {
         display: flex;
         justify-content: space-around;
-        color: color('dark', 'lighter', 'II')
+        color: color('dark', 'lighter', 'II');
       }
     }
   }

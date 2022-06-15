@@ -3,6 +3,7 @@ import Macros from '../../layouts/Macros'
 import ActivityChart from '../../components/Chart/Activity'
 import SessionsChart from '../../components/Chart/Sessions'
 import PerformanceChart from '../../components/Chart/Performance'
+import ScoreChart from '../../components/Chart/Score'
 
 function Dashboard() {
   return (
@@ -11,7 +12,8 @@ function Dashboard() {
       <ActivityChart />
       <SessionsChart />
       <PerformanceChart />
-      <Macros/>
+      <ScoreChart />
+      <Macros />
     </main>
   )
 }

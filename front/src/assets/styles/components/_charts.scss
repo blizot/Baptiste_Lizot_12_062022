@@ -111,4 +111,35 @@
       display: none;
     }
   }
+
+  &__score {
+    background-color: color('light', 'darker', 'I');
+
+    &-title {
+      position: absolute;
+      top: -5.5rem;
+      left: 1.5rem;
+      font-size: 1rem;
+    }
+
+    &-fill {
+      fill: color('primary');
+      stroke: color('primary');
+    }
+
+    &-legend {
+      &-amount {
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 700;
+        color: color('dark', 'lighter', 'I')
+      }
+
+      &-text {
+        display: flex;
+        justify-content: space-around;
+        color: color('dark', 'lighter', 'II')
+      }
+    }
+  }
 }

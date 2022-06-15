@@ -7,8 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
-  ResponsiveContainer,
+  Legend
 } from 'recharts'
 
 function DailyChart() {
@@ -54,15 +53,26 @@ function DailyChart() {
       burntCalories: 325,
     },
   ]
-
-  const [width, setWidth] = useState('100%')
+  
+  const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
-  useEffect(() => {
-    function handleResize() {
-      setWidth(document.querySelector('.chart__daily')?.clientWidth - 32)
-    }
+  function handleResize() {
+    const chartContainer = document.querySelector('.chart__daily')
+    const computedStyle = getComputedStyle(chartContainer)
+    let chartWidth = chartContainer.clientWidth
+    chartWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight)
+    setWidth(chartWidth)
+  }
 
+  useEffect(() => {
+    handleResize()
+    setTimeout(() => {
+      handleResize()
+    }, 250);
+  }, [])
+
+  useEffect(() => {
     window.addEventListener('resize', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
@@ -115,82 +125,85 @@ function DailyChart() {
 
   return (
     <article className="chart__daily">
-      <ResponsiveContainer width={deferredWidth} height={280}>
-        <BarChart data={data}>
-          <CartesianGrid 
-            strokeDasharray={4}
-            vertical={false} 
-          />
-          <XAxis
-            tickFormatter={(item) => item + 1}
-            tickLine={false}
-            tickMargin={20}
-            height={35}
-          />
-          <YAxis
-            dataKey="weight"
-            orientation="right"
-            domain={[
-              (dataMin) => Math.round(dataMin - 1),
-              (dataMax) => Math.round(dataMax + 1),
-            ]}
-            allowDecimals={false}
-            axisLine={false}
-            tickLine={false}
-            tickMargin={20}
-          />
-          <YAxis
-            yAxisId="hiddenAxis"
-            hide={true}
-            dataKey="burntCalories"
-            domain={[0, (dataMax) => dataMax + 50]}
-          />
-          <Tooltip
-            itemStyle={{ 
-              backgroundColor: '#f00', 
-              color: '#fff' 
-            }}
-            contentStyle={{
-              backgroundColor: '#f00',
-              border: 'none',
-              fontSize: '0.75rem',
-              textAlign: 'center',
-            }}
-            labelStyle={{ display: 'none' }}
-            cursor={{
-              fill: '#e0e0e0', 
-              opacity: 0.5 
-            }}
-            formatter={(value) => [value, '']}
-            separator=""
-            offset={20}
-          />
-          <Legend
-            align="right"
-            verticalAlign="top"
-            iconType="circle"
-            height={75}
-            content={<CustomLegend />}
-          />
-          <Bar
-            dataKey="weight"
-            name="Poids (kg)"
-            unit="kg"
-            barSize={8}
-            shape={<CustomShape />}
-            className="chart__daily--weight"
-          />
-          <Bar
-            yAxisId="hiddenAxis"
-            dataKey="burntCalories"
-            name="Calories brûlées (kCal)"
-            unit="kCal"
-            barSize={8}
-            shape={<CustomShape />}
-            className="chart__daily--burntCalories"
-          />
-        </BarChart>
-      </ResponsiveContainer>
+      <BarChart
+        data={data}
+        width={deferredWidth}
+        height={280}
+      >
+        <CartesianGrid 
+          strokeDasharray={4}
+          vertical={false} 
+        />
+        <XAxis
+          tickFormatter={(item) => item + 1}
+          tickLine={false}
+          tickMargin={20}
+          height={35}
+        />
+        <YAxis
+          dataKey="weight"
+          orientation="right"
+          domain={[
+            (dataMin) => Math.round(dataMin - 1),
+            (dataMax) => Math.round(dataMax + 1),
+          ]}
+          allowDecimals={false}
+          axisLine={false}
+          tickLine={false}
+          tickMargin={20}
+          width={40}
+        />
+        <YAxis
+          yAxisId="hiddenAxis"
+          hide={true}
+          dataKey="burntCalories"
+          domain={[0, (dataMax) => dataMax + 50]}
+        />
+        <Tooltip
+          itemStyle={{ 
+            backgroundColor: '#f00', 
+            color: '#fff' 
+          }}
+          contentStyle={{
+            backgroundColor: '#f00',
+            border: 'none',
+            fontSize: '0.75rem',
+            textAlign: 'center',
+          }}
+          labelStyle={{ display: 'none' }}
+          cursor={{
+            fill: '#e0e0e0', 
+            opacity: 0.5 
+          }}
+          formatter={(value) => [value, '']}
+          separator=""
+          offset={20}
+        />
+        <Legend
+          align="right"
+          verticalAlign="top"
+          iconType="circle"
+          height={75}
+          content={<CustomLegend />}
+        />
+        <Bar
+          dataKey="weight"
+          name="Poids (kg)"
+          unit="kg"
+          barSize={8}
+          shape={<CustomShape />}
+          className="chart__daily--weight"
+        />
+        <Bar
+          yAxisId="hiddenAxis"
+          dataKey="burntCalories"
+          name="Calories brûlées (kCal)"
+          unit="kCal"
+          barSize={8}
+          shape={<CustomShape />}
+          className="chart__daily--burntCalories"
+        />
+      </BarChart>
     </article>
   )
 }

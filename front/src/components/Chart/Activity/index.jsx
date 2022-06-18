@@ -2,6 +2,8 @@ import { useEffect, useState, useDeferredValue } from 'react';
 
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 
+import handleResize from '../responsive';
+
 function ActivityChart() {
   const data = [
     {
@@ -49,25 +51,21 @@ function ActivityChart() {
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
-  function handleResize() {
-    const chartContainer = document.querySelector('.chart__activity')
-    const computedStyle = getComputedStyle(chartContainer)
-    let chartWidth = chartContainer.clientWidth
-    chartWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight)
-    setWidth(chartWidth)
+  function callHandleResize() {
+    handleResize('.js_chart-activity', setWidth)
   }
 
   useEffect(() => {
-    handleResize()
+    callHandleResize()
     setTimeout(() => {
-      handleResize()
+      callHandleResize()
     }, 250);
   }, [])
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', callHandleResize)
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', callHandleResize)
     }
   })
 
@@ -116,7 +114,7 @@ function ActivityChart() {
   }
 
   return (
-    <article className="chart chart__activity">
+    <article className="chart chart__activity js_chart-activity">
       <BarChart
         data={data}
         width={deferredWidth}

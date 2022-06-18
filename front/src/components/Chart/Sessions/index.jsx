@@ -2,6 +2,8 @@ import { useEffect, useState, useDeferredValue } from 'react';
 
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts'
 
+import handleResize from '../responsive';
+
 function SessionsChart() {
   const data = [
     {
@@ -37,30 +39,26 @@ function SessionsChart() {
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
-  function handleResize() {
-    const chartContainer = document.querySelector('.chart__sessions')
-    const computedStyle = getComputedStyle(chartContainer)
-    let chartWidth = chartContainer.clientWidth
-    chartWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight)
-    setWidth(chartWidth)
+  function callHandleResize() {
+    handleResize('.js_chart-sessions', setWidth)
   }
 
   useEffect(() => {
-    handleResize()
+    callHandleResize()
     setTimeout(() => {
-      handleResize()
+      callHandleResize()
     }, 250);
   }, [])
 
   useEffect(() => {
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', callHandleResize)
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', callHandleResize)
     }
   })
 
   return (
-    <article className="chart chart__sessions">
+    <article className="chart chart__sessions js_chart-sessions">
       <h2 className="chart__sessions-title">
         Durée moyenne des sessions
       </h2>

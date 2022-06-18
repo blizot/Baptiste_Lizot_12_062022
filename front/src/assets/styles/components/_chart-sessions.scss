@@ -1,0 +1,39 @@
+@use '../components/' as *;
+
+.chart__sessions {
+  background-color: color('primary');
+  background-image: linear-gradient(
+    to right,
+    color('primary') calc(calc(100% / 7) * 5),
+    color('primary', 'darker') calc(calc(100% / 7) * 5)
+  );
+  padding: 1.75rem;
+  position: relative;
+
+  @media only screen and (min-width: 1440px) {
+    padding: 1rem;
+  }
+
+  &-title {
+    position: absolute;
+    color: color('light');
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 2rem;
+    padding: 0.5rem;
+
+    @media only screen and (min-width: 1440px) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &--length path {
+    stroke: color('light');
+  }
+
+  // edit Recharts
+  & .recharts-cartesian-axis-tick-value,
+  & .recharts-dot {
+    fill: color('light');
+  }
+}

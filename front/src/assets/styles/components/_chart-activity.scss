@@ -1,0 +1,59 @@
+@use '../components/' as *;
+
+.chart__activity {
+  background-color: color('light', 'darker', 'I');
+  padding: 1.5rem;
+
+  &--burntCalories {
+    fill: color('primary');
+  }
+
+  &--weight {
+    fill: color('dark', 'lighter', 'I');
+  }
+
+  &-legend {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 1rem;
+
+    &-title {
+      font-size: 1rem;
+    }
+
+    &-description {
+      display: flex;
+      gap: 1rem;
+
+      &-item {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      &-text {
+        color: color('dark', 'lighter', 'II');
+        font-weight: 500;
+      }
+
+      &-circle {
+        &--burntCalories {
+          fill: color('primary');
+        }
+
+        &--weight {
+          fill: color('dark', 'lighter', 'I');
+        }
+      }
+    }
+  }
+
+  // edit Recharts
+  & .recharts-cartesian-axis-tick-value {
+    fill: color('dark', 'lighter', 'II');
+  }
+  & .recharts-cartesian-axis-line,
+  & .recharts-cartesian-grid-horizontal line {
+    stroke: color('dark', 'lighter', 'II');
+  }
+}

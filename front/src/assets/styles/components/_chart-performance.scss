@@ -1,0 +1,33 @@
+@use '../components/' as *;
+
+.chart__performance {
+  background-color: color('dark', 'lighter', 'I');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-title {
+    display: none;
+  }
+
+  &-fill {
+    fill: color('primary');
+    opacity: 0.7;
+  }
+
+  // edit Recharts
+  & .recharts-polar-angle-axis-tick-value {
+    fill: color('light');
+    font-size: 0.95rem;
+    padding: 0.25rem;
+    @media only screen and (min-width: 1440px) {
+      font-size: 0.75rem;
+    }
+  }
+  & .recharts-polar-grid-concentric path {
+    stroke: color('light');
+  }
+  & .recharts-polar-grid-angle {
+    display: none;
+  }
+}

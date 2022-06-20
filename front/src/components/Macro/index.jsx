@@ -7,15 +7,13 @@ function importAllImages(context) {
 }
 
 function Macro(props) {
-  const { category } = props
+  const { category, amount } = props
 
-  //! temp
-  const value = 1930
-  const name = {
+  const frenchPluralTranslation = {
     calorie: 'calories',
     protein: 'proteines',
     carbohydrate: 'glucides',
-    lipid: 'lipids'
+    lipid: 'lipides'
   }
 
   const images = importAllImages(
@@ -30,9 +28,9 @@ function Macro(props) {
         </span>
         <figcaption className="macro__text">
           <p className="macro__value">
-            {value}{category === 'calorie' ? 'kCal' : 'g'}
+            {amount}{category === 'calorie' ? 'kCal' : 'g'}
           </p>
-          <h2 className="macro__name">{`${name[category]}`}</h2>
+          <h2 className="macro__name">{`${frenchPluralTranslation[category]}`}</h2>
         </figcaption>
       </figure>
     </article>

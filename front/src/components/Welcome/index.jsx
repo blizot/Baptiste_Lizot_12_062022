@@ -1,5 +1,10 @@
-function Welcome(props) {
-  const { name } = props
+import { useContext } from "react"
+
+import {ProfileContext} from '../../API/Profile'
+
+function Welcome() {
+  const {profileData} = useContext(ProfileContext)
+  const name = profileData?.user?.data?.userInfos.firstName
 
   return (
     <div className="welcome">

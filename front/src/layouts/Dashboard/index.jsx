@@ -8,7 +8,7 @@ import ScoreChart from '../../components/Chart/Score'
 function Dashboard() {
   return (
     <main className='dashboard'>
-      <Welcome name='Thomas' />
+      <Welcome/>
       <ActivityChart />
       <SessionsChart />
       <PerformanceChart />

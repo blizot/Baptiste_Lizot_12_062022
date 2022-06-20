@@ -1,7 +1,18 @@
+import { useContext } from 'react'
 import { PieChart, Pie, Legend } from 'recharts'
 
+import { ProfileContext } from '../../../API/Profile'
+
 function ScoreChart() {
-  const score = 0.3
+  const { profileData, isProfileDataLoading: loader } =
+    useContext(ProfileContext)
+
+  let score = 0
+  if (Object.keys(profileData).length >= 1) {
+    score =
+      profileData?.user?.data?.score || profileData?.user?.data?.todayScore
+  }
+
   const finalAngle = 360 * score + 90
 
   const CustomLegend = () => {

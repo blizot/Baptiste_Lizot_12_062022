@@ -25,9 +25,9 @@ function Header() {
           </li>
           <li>
             <Link
-              to="/me"
+              to="/user"
               className={`header__menu-link 
-                ${location === '/me' ? 'header__menu-link--active' : ''}
+                ${location.includes('/user') ? 'header__menu-link--active' : ''}
               `}
             >
               Profil

@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+import { ProfileProvider } from './API/Profile'
+
 import './assets/styles/main.scss'
 
 import Navigation from './layouts/Navigation'
@@ -17,7 +19,14 @@ root.render(
       <App>
         <Routes>
           <Route path="/" element={''}></Route>
-          <Route path="me" element={<Profile />}></Route>
+          <Route
+            path="user/:id"
+            element={
+              <ProfileProvider>
+                <Profile />
+              </ProfileProvider>
+            }
+          ></Route>
           <Route path="activity" element={''}></Route>
           <Route path="activity/:name" element={''}></Route>
           <Route path="settings" element={''}></Route>

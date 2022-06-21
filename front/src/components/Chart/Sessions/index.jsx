@@ -1,40 +1,18 @@
-import { useEffect, useState, useDeferredValue } from 'react';
-
+import { useEffect, useState, useDeferredValue, useContext } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts'
+
+import { ProfileContext } from '../../../API/Profile'
 
 import handleResize from '../responsive';
 
 function SessionsChart() {
-  const data = [
-    {
-      day: 1,
-      sessionLength: 30,
-    },
-    {
-      day: 2,
-      sessionLength: 40,
-    },
-    {
-      day: 3,
-      sessionLength: 50,
-    },
-    {
-      day: 4,
-      sessionLength: 30,
-    },
-    {
-      day: 5,
-      sessionLength: 30,
-    },
-    {
-      day: 6,
-      sessionLength: 50,
-    },
-    {
-      day: 7,
-      sessionLength: 50,
-    },
-  ]
+  const { profileData, isProfileDataLoading: loader } =
+    useContext(ProfileContext)
+
+  let sessionsData = []
+  if (Object.keys(profileData).length >= 1) {
+    sessionsData = profileData?.['user-average-sessions']?.data?.sessions
+  }
 
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
@@ -63,7 +41,7 @@ function SessionsChart() {
         Durée moyenne des sessions
       </h2>
       <LineChart 
-        data={data}
+        data={sessionsData}
         width={deferredWidth}
         height={242}>
         <XAxis
@@ -79,8 +57,8 @@ function SessionsChart() {
           dataKey="sessionLength"
           hide={true}
           domain={[
-            (dataMin) => dataMin - 10,
-            (dataMax) => dataMax + 15
+            (dataMin) => dataMin - 15,
+            (dataMax) => dataMax + 20
           ]}
         />
         <Tooltip

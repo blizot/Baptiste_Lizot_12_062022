@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { ProfileContext } from '../../API/Profile'
 
 import Macro from '../../components/Macro'
+import Loader from '../../components/Loader'
 
 function Macros() {
   const { profileData, isProfileDataLoading: loader } =
@@ -16,7 +17,7 @@ function Macros() {
   return (
     <>
       {loader ? (
-        ''
+        <Loader extraClasses="macros"/>
       ) : (
         <div className="macros">
           {Object.keys(keyData).map((element) => (

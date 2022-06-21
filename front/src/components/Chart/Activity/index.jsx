@@ -3,6 +3,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 import { ProfileContext } from '../../../API/Profile'
 
+import Loader from '../../Loader'
+
 import handleResize from '../responsive'
 
 function ActivityChart() {
@@ -96,7 +98,7 @@ function ActivityChart() {
   return (
     <>
       {loader ? (
-        ''
+        <Loader extraClasses="chart chart__activity js_chart-activity" />
       ) : (
         <article className="chart chart__activity js_chart-activity">
           <BarChart 

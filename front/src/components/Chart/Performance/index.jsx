@@ -3,6 +3,8 @@ import { RadarChart, PolarGrid, Radar, PolarAngleAxis, PolarRadiusAxis } from 'r
 
 import { ProfileContext } from '../../../API/Profile'
 
+import Loader from '../../Loader'
+
 function PerformanceChart() {
   const frenchTranslation = {
     cardio: 'cardio',
@@ -26,7 +28,7 @@ function PerformanceChart() {
   return (
     <>
       {loader ? (
-        '' 
+        <Loader extraClasses="chart chart__performance" />
       ) : (
         <article className="chart chart__performance">
           <h2 className="chart__performance-title">Performance</h2>

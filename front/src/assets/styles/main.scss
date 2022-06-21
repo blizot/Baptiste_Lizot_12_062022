@@ -1,24 +1,8 @@
-@use './utils/variables';
-@use './utils/functions';
-@use './utils/mixins';
-
 @use './base/reset';
 @use './base/normalize';
 @use './base/typography';
 
-@use './components/header';
-@use './components/sidebar';
-@use './components/welcome';
-@use './components/macro';
-@use './components/charts';
-@use './components/chart-activity';
-@use './components/chart-sessions';
-@use './components/chart-performance';
-@use './components/chart-score';
-
 @use './components/loader';
 
-@use './layouts/dashboard';
-@use './layouts/macros';
-
 @use './pages/app';
+@use './pages/profile';

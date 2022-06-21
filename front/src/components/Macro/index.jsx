@@ -1,12 +1,5 @@
+import importAllImages from '../../assets/tools/importAllImages'
 import frenchTranslation from '../../assets/translations/french.json'
-
-function importAllImages(context) {
-  let images = {}
-  context.keys().forEach((item) => {
-    images[item.replace('./', '').replace('.svg', '')] = context(item)
-  })
-  return images
-}
 
 function Macro(props) {
   const { category, amount } = props

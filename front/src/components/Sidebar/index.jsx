@@ -1,12 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 
-function importAllImages(context) {
-  let images = {}
-  context.keys().forEach((item) => {
-    images[item.replace('./', '').replace('.svg', '')] = context(item)
-  })
-  return images
-}
+import importAllImages from '../../assets/tools/importAllImages'
 
 function getYear() {
   return new Date().getFullYear()

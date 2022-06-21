@@ -15,11 +15,12 @@ function ActivityChart() {
   if (Object.keys(profileData).length >= 1) {
     sessionsData = profileData?.['user-activity']?.data?.sessions
     sessionsData.forEach((d) => {
-      d.weight = d?.kilogram
+      d.weight = d?.kilogram || d?.pound
       d.burntCalories = d?.calories
     })
   }
 
+  // make the component responsive
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
@@ -29,6 +30,7 @@ function ActivityChart() {
 
   useEffect(() => {
     callHandleResize()
+    // the browser lies the first time
     setTimeout(() => {
       callHandleResize()
     }, 250)
@@ -111,7 +113,8 @@ function ActivityChart() {
               vertical={false} 
             />
             <XAxis
-              tickFormatter={(item) => item + 1}
+              dataKey="day"
+              tickFormatter={(day) => new Date(day).getDate()}
               tickLine={false}
               tickMargin={20}
               height={35}

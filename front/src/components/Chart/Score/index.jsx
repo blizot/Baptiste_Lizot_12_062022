@@ -33,7 +33,10 @@ function ScoreChart() {
       ) : (
         <article className="chart chart__score">
           <h2 className="chart__score-title">Score</h2>
-          <PieChart width={272} height={272}>
+          <PieChart
+            width={272}
+            height={272}
+          >
             <Pie
               data={[{ full: 1 }]}
               dataKey="full"

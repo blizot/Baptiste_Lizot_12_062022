@@ -16,6 +16,7 @@ function SessionsChart() {
     sessionsData = profileData?.['user-average-sessions']?.data?.sessions
   }
 
+  // make the component responsive
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
@@ -25,6 +26,7 @@ function SessionsChart() {
 
   useEffect(() => {
     callHandleResize()
+    // the browser lies the first time
     setTimeout(() => {
       callHandleResize()
     }, 250);
@@ -49,14 +51,15 @@ function SessionsChart() {
           <LineChart 
             data={sessionsData}
             width={deferredWidth}
-            height={242}>
+            height={242}
+          >
             <XAxis
               dataKey="day"
               tickLine={false}
               axisLine={false}
               tickFormatter={(item) => {
-                const weekday = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-                return weekday[item - 1]
+                const frenchWeekday = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
+                return frenchWeekday[item - 1]
               }}
             />
             <YAxis

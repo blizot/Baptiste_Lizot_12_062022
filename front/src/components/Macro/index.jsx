@@ -1,3 +1,5 @@
+import frenchTranslation from '../../assets/translations/french.json'
+
 function importAllImages(context) {
   let images = {}
   context.keys().forEach((item) => {
@@ -8,13 +10,6 @@ function importAllImages(context) {
 
 function Macro(props) {
   const { category, amount } = props
-
-  const frenchPluralTranslation = {
-    calorie: 'calories',
-    protein: 'proteines',
-    carbohydrate: 'glucides',
-    lipid: 'lipides'
-  }
 
   const images = importAllImages(
     require.context('../../assets/images/icons/macros', false, /\.svg$/)
@@ -30,7 +25,7 @@ function Macro(props) {
           <p className="macro__value">
             {amount}{category === 'calorie' ? 'kCal' : 'g'}
           </p>
-          <h2 className="macro__name">{`${frenchPluralTranslation[category]}`}</h2>
+          <h2 className="macro__name">{`${frenchTranslation.plural[category]}`}</h2>
         </figcaption>
       </figure>
     </article>

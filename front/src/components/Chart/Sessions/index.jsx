@@ -7,6 +7,8 @@ import Loader from '../../Loader'
 
 import handleResize from '../responsive';
 
+import frenchTranslation from '../../../assets/translations/french.json'
+
 function SessionsChart() {
   const { profileData, isProfileDataLoading: loader } =
     useContext(ProfileContext)
@@ -14,6 +16,8 @@ function SessionsChart() {
   let sessionsData = []
   if (Object.keys(profileData).length >= 1) {
     sessionsData = profileData?.['user-average-sessions']?.data?.sessions
+    const weekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    sessionsData.forEach(d => d.weekDay = weekDay[d.day - 1])
   }
 
   // make the component responsive
@@ -54,13 +58,10 @@ function SessionsChart() {
             height={242}
           >
             <XAxis
-              dataKey="day"
+              dataKey="weekDay"
               tickLine={false}
               axisLine={false}
-              tickFormatter={(item) => {
-                const frenchWeekday = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
-                return frenchWeekday[item - 1]
-              }}
+              tickFormatter={(item) => frenchTranslation.weekDays[item]?.charAt(0).toUpperCase()}
             />
             <YAxis
               dataKey="sessionLength"

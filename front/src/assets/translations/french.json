@@ -1,0 +1,29 @@
+{
+  "cardio": "cardio",
+  "energy": "energie",
+  "endurance": "endurance",
+  "strength": "force",
+  "speed": "vitesse",
+  "intensity": "intensité",
+  "calorie": "calorie",
+  "protein": "proteine",
+  "carbohydrate": "glucide",
+  "lipid": "lipide",
+
+  "plural": {
+    "calorie": "calories",
+    "protein": "proteines",
+    "carbohydrate": "glucides",
+    "lipid": "lipides"
+  },
+
+  "weekDays": {
+    "Monday": "lundi",
+    "Tuesday": "mardi",
+    "Wednesday": "mercredi",
+    "Thursday": "jeudi",
+    "Friday": "vendredi",
+    "Saturday": "samedi",
+    "Sunday": "dimanche"
+  }
+}

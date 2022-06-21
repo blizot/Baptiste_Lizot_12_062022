@@ -5,15 +5,9 @@ import { ProfileContext } from '../../../API/Profile'
 
 import Loader from '../../Loader'
 
+import frenchTranslation from '../../../assets/translations/french.json'
+
 function PerformanceChart() {
-  const frenchTranslation = {
-    cardio: 'cardio',
-    energy: 'energie',
-    endurance: 'endurance',
-    strength: 'force',
-    speed: 'vitesse',
-    intensity: 'intensité'
-  }
 
   const { profileData, isProfileDataLoading: loader } =
     useContext(ProfileContext)

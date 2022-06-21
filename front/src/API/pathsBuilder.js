@@ -12,7 +12,7 @@ function pathsBuilder({ zone, data }) {
       return paths
 
     default:
-      console.log('API/pathBuilder error')
+      console.error('API/pathBuilder error')
       return 'API/pathsBuilder error'
   }
 }

@@ -26,7 +26,7 @@ function ProfileAPI() {
         )
       ).then((array) => setProfileData(Object.fromEntries(array)))
     } catch (error) {
-      console.log(error)
+      console.error(error)
     } finally {
       setProfileDataLoading(false)
     }
@@ -39,7 +39,6 @@ export const ProfileContext = createContext()
 
 export const ProfileProvider = ({ children }) => {
   const profileAPI = ProfileAPI()
-  console.log(profileAPI) //! TO DELETE
 
   return (
     <ProfileContext.Provider value={profileAPI}>

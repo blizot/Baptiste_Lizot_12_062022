@@ -5,6 +5,7 @@
  * @param { Object } profileData
  * @param { Boolean } profileData.loader - displays a loader if true
  * @param { Object } profileData.user - contains the API data ready to use
+ * may contain an error Object
  * 
  * @returns { React.Component }
  */

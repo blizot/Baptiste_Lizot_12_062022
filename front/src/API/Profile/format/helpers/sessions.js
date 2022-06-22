@@ -5,7 +5,7 @@
  * @param { Object } profileData - Data coming from the API
  * @param { Object } profileData.user-average-sessions
  * 
- * @returns { Array.Object }
+ * @returns { (Array.Object | Object) }
  */
 
 function formatAverageSessionsData(profileData) {

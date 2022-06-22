@@ -9,7 +9,7 @@
  * @param { Object } profileData.user-performance
  * @param { Boolean } isProfileDataLoading
  * 
- * @returns { Object.<Boolean|Object.<String|Float|Array|Object>> }
+ * @returns { Object.<Boolean|Object.<String|Integer|Float|Array|Object>> }
  */
 
 import formatMacrosData from './helpers/macros'

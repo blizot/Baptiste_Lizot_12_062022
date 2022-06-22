@@ -5,7 +5,7 @@
  * @param { Object } profileData - Data coming from the API
  * @param { Object } profileData.user-performance
  * 
- * @returns { Array.Object }
+ * @returns { (Array.Object | Object) }
  */
 
 function formatPerformanceData(profileData) {

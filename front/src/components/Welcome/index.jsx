@@ -3,6 +3,7 @@
  * 
  * @param { Object } profileData
  * @param { Object } profileData.user - contains the API data ready to use
+ * may contain an error Object
  * 
  * @returns { React.Component }
  */

@@ -1,5 +1,6 @@
 import { useEffect, useState, useDeferredValue, useContext } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts'
+import PropTypes from 'prop-types'
 
 import { ProfileContext } from '../../../API/Profile'
 
@@ -102,3 +103,7 @@ function SessionsChart() {
 }
 
 export default SessionsChart
+
+SessionsChart.propTypes = {
+  sessionsData: PropTypes.array
+}

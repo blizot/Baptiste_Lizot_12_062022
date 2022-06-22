@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { PieChart, Pie, Legend } from 'recharts'
+import PropTypes from 'prop-types'
 
 import { ProfileContext } from '../../../API/Profile'
 
@@ -64,3 +65,7 @@ function ScoreChart() {
 }
 
 export default ScoreChart
+
+ScoreChart.propTypes = {
+  score: PropTypes.number
+}

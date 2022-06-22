@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { RadarChart, PolarGrid, Radar, PolarAngleAxis, PolarRadiusAxis} from 'recharts'
+import PropTypes from 'prop-types'
 
 import { ProfileContext } from '../../../API/Profile'
 
@@ -50,3 +51,7 @@ function PerformanceChart() {
 }
 
 export default PerformanceChart
+
+PerformanceChart.propTypes = {
+  performanceData: PropTypes.object
+}

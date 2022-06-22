@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import PropTypes from 'prop-types'
 
 import { ProfileContext } from '../../API/Profile'
 
@@ -31,3 +32,7 @@ function Macros() {
 }
 
 export default Macros
+
+Macros.propTypes = {
+  macrosData: PropTypes.object
+}

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 import importAllImages from '../../assets/tools/importAllImages'
 import frenchTranslation from '../../assets/translations/french.json'
 
@@ -26,3 +28,8 @@ function Macro(props) {
 }
 
 export default Macro
+
+Macro.propTypes = {
+  category: PropTypes.string,
+  amount: PropTypes.number
+}

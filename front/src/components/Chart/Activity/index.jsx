@@ -1,5 +1,6 @@
 import { useEffect, useState, useDeferredValue, useContext } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
+import PropTypes from 'prop-types'
 
 import { ProfileContext } from '../../../API/Profile'
 
@@ -8,11 +9,11 @@ import Loader from '../../Loader'
 import handleResize from '../responsive'
 
 function ActivityChart() {
-  const { profileData} = useContext(ProfileContext)
+  const { profileData } = useContext(ProfileContext)
 
-  let sessionsData = []
+  let activityData = []
   if (Object.keys(profileData).length >= 1) {
-    sessionsData = profileData?.user.activity
+    activityData = profileData?.user.activity
   }
 
   // make the component responsive
@@ -99,7 +100,7 @@ function ActivityChart() {
       ) : (
         <article className="chart chart__activity js_chart-activity">
           <BarChart 
-            data={sessionsData}
+            data={activityData}
             width={deferredWidth}
             height={280}
           >
@@ -185,3 +186,7 @@ function ActivityChart() {
 }
 
 export default ActivityChart
+
+ActivityChart.propTypes = {
+  activityData: PropTypes.array
+}

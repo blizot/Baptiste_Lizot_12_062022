@@ -3,28 +3,23 @@
  * 
  * @param { String } category
  * @param { Integer } amount
- * @param { Object.String } images - images paths
+ * @param { String } image - image's path
  * 
  * @returns { React.Component }
  */
 
 import PropTypes from 'prop-types'
 
-import importAllImages from '../../assets/tools/importAllImages'
 import frenchTranslation from '../../assets/translations/french.json'
 
 function Macro(props) {
-  const { category, amount } = props
-
-  const images = importAllImages(
-    require.context('../../assets/images/icons/macros', false, /\.svg$/)
-  )
+  const { category, amount, image } = props
 
   return (
     <article>
       <figure className="macro">
         <span className={`macro__image-container ${category}`}>
-        <img src={images[category]} alt={category} className="macro__image" />
+        <img src={image} alt={category} className="macro__image" />
         </span>
         <figcaption className="macro__text">
           <p className="macro__value">

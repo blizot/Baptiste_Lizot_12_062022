@@ -1,10 +1,11 @@
 /**
  * Creates the Macronutients tiles
- * 
+ *
  * @param { Object } profileData
  * @param { Boolean } profileData.loader - displays a loader if true
  * @param { Object } profileData.user - contains the API data ready to use
- * 
+ * @param { Object.String } images - images paths
+ *
  * @returns { React.Component }
  */
 
@@ -16,6 +17,8 @@ import { ProfileContext } from '../../API/Profile'
 import Macro from '../../components/Macro'
 import Loader from '../../components/Loader'
 
+import importAllImages from '../../assets/tools/importAllImages'
+
 function Macros() {
   const { profileData } = useContext(ProfileContext)
 
@@ -24,6 +27,10 @@ function Macros() {
     macrosData = profileData?.user.macros
   }
 
+  const images = importAllImages(
+    require.context('../../assets/images/icons/macros', false, /\.svg$/)
+  )
+
   return (
     <>
       {profileData.loader ? (
@@ -31,8 +38,11 @@ function Macros() {
       ) : (
         <div className="macros">
           {Object.keys(macrosData).map((macro) => (
-            <Macro key={macro} 
-              category={macro} amount={macrosData[macro]}
+            <Macro
+              key={macro}
+              category={macro}
+              amount={macrosData[macro]}
+              image={images[macro]}
             />
           ))}
         </div>
@@ -44,5 +54,5 @@ function Macros() {
 export default Macros
 
 Macros.propTypes = {
-  macrosData: PropTypes.object
+  macrosData: PropTypes.object,
 }

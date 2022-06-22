@@ -10,7 +10,6 @@ import logo from '../../assets/images/logo_icon.svg'
 
 function Loader(props) {
   const { extraClasses } = props
-  console.log(extraClasses)
 
   return (
     <div className={`loader ${extraClasses}`}>

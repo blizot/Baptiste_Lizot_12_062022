@@ -51,7 +51,8 @@ function formatPerformanceData(profileData) {
     })
   )
 
-  return formatedPerformanceData
+  // reversing the array to avoid dealing with Recharts' buggy Radar chart startAngle and endAngle
+  return formatedPerformanceData.reverse()
 }
 
 function formatProfileData({ profileData, isProfileDataLoading }) {

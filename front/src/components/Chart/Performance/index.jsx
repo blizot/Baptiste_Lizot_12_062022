@@ -27,8 +27,6 @@ function PerformanceChart() {
             width={272}
             height={272}
             outerRadius={90}
-            startAngle={-150}
-            endAngle={210}
           >
             <PolarGrid />
             <PolarAngleAxis

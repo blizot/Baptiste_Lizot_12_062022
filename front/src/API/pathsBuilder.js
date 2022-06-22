@@ -1,3 +1,12 @@
+/**
+ * Builds API paths
+ * 
+ * @param { String } zone - which main collection to fetch
+ * @param { * } [data] - if need to call children collections
+ * 
+ * @returns { (String | Array)}
+ */
+
 function pathsBuilder({ zone, data }) {
   switch (zone) {
     case 'user':

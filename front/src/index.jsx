@@ -1,3 +1,9 @@
+/**
+ * Manages the app navigation
+ * 
+ * @returns { React.Router }
+ */
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -18,7 +24,7 @@ root.render(
       <Navigation />
       <App>
         <Routes>
-          <Route path="/" element={''}></Route>
+          <Route path="/" element={''} />
           <Route
             path="user/:id"
             element={
@@ -26,12 +32,12 @@ root.render(
                 <Profile />
               </ProfileProvider>
             }
-          ></Route>
-          <Route path="activity" element={''}></Route>
-          <Route path="activity/:name" element={''}></Route>
-          <Route path="settings" element={''}></Route>
-          <Route path="community" element={''}></Route>
-          {/* Error 404 page */} <Route path="*" element={''}></Route>
+          />
+          <Route path="activity" element={''} />
+          <Route path="activity/:name" element={''} />
+          <Route path="settings" element={''} />
+          <Route path="community" element={''} />
+          {/* Error 404 page */} <Route path="*" element={''} />
         </Routes>
       </App>
     </Router>

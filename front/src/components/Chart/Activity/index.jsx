@@ -1,3 +1,14 @@
+/**
+ * Creates an Activity chart using Recharts
+ * contains user's weight and burnt calories
+ * 
+ * @param { Object } profileData
+ * @param { Boolean } profileData.loader - displays a loader if true
+ * @param { Object } profileData.user - contains the API data ready to use
+ * 
+ * @returns { React.Component }
+ */
+
 import { useEffect, useState, useDeferredValue, useContext } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 import PropTypes from 'prop-types'
@@ -16,7 +27,7 @@ function ActivityChart() {
     activityData = profileData?.user.activity
   }
 
-  // make the component responsive
+  // makes the component responsive, ResponsiveContainer doesn't work on grid fr children
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
@@ -26,7 +37,7 @@ function ActivityChart() {
 
   useEffect(() => {
     callHandleResize()
-    // the browser lies the first time
+    // the browser may lie the first time
     setTimeout(() => {
       callHandleResize()
     }, 250)
@@ -38,6 +49,7 @@ function ActivityChart() {
       window.removeEventListener('resize', callHandleResize)
     }
   })
+  // responsive code ends here
 
   const CustomLegend = (props) => {
     const { payload } = props

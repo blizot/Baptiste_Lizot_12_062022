@@ -1,3 +1,11 @@
+/**
+ * Makes a call to the API using fetch
+ * 
+ * @param { String } path - which path of the API to call
+ * 
+ * @returns { JSON }
+ */
+
 const { REACT_APP_API, REACT_APP_API_HOST } = process.env
 
 async function client(path) {

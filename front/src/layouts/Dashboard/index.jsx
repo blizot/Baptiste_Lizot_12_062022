@@ -1,3 +1,9 @@
+/**
+ * Creates the Profile's dashboard
+ * 
+ * @returns { React.Component }
+ */
+
 import Welcome from '../../components/Welcome'
 import Macros from '../../layouts/Macros'
 import ActivityChart from '../../components/Chart/Activity'

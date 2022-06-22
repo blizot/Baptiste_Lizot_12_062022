@@ -1,3 +1,14 @@
+/**
+ * Creates a Score chart using Recharts
+ * contains the overall progress score
+ * 
+ * @param { Object } profileData
+ * @param { Boolean } profileData.loader - displays a loader if true
+ * @param { Object } profileData.user - contains the API data ready to use
+ * 
+ * @returns { React.Component }
+ */
+
 import { useContext } from 'react'
 import { PieChart, Pie, Legend } from 'recharts'
 import PropTypes from 'prop-types'

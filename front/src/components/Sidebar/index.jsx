@@ -1,3 +1,13 @@
+/**
+ * Creates the app's Sidebar
+ * contains secondary navigation links
+ * 
+ * @param { String } location
+ * @param { Object.String } images - images paths
+ * 
+ * @returns { React.Component }
+ */
+
 import { Link, useLocation } from 'react-router-dom'
 
 import importAllImages from '../../assets/tools/importAllImages'

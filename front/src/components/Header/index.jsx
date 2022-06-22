@@ -1,3 +1,12 @@
+/**
+ * Creates the app's Header
+ * contains the main navigation links
+ * 
+ * @param { String } location
+ * 
+ * @returns { React.Component }
+ */
+
 import { Link, useLocation } from 'react-router-dom'
 
 import logo from '../../assets/images/logo.svg'

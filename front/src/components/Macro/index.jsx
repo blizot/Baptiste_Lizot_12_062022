@@ -1,3 +1,13 @@
+/**
+ * Creates a Macronutrient tile
+ * 
+ * @param { String } category
+ * @param { Integer } amount
+ * @param { Object.String } images - images paths
+ * 
+ * @returns { React.Component }
+ */
+
 import PropTypes from 'prop-types'
 
 import importAllImages from '../../assets/tools/importAllImages'

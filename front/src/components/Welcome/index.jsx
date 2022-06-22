@@ -1,3 +1,12 @@
+/**
+ * Creates the Profile's welcoming message
+ * 
+ * @param { Object } profileData
+ * @param { Object } profileData.user - contains the API data ready to use
+ * 
+ * @returns { React.Component }
+ */
+
 import { useContext } from 'react'
 import PropTypes from 'prop-types'
 

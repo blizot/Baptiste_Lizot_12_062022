@@ -1,3 +1,14 @@
+/**
+ * Creates an Average Sessions chart using Recharts
+ * contains average session duration per day
+ * 
+ * @param { Object } profileData
+ * @param { Boolean } profileData.loader - displays a loader if true
+ * @param { Object } profileData.user - contains the API data ready to use
+ * 
+ * @returns { React.Component }
+ */
+
 import { useEffect, useState, useDeferredValue, useContext } from 'react'
 import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts'
 import PropTypes from 'prop-types'
@@ -18,7 +29,7 @@ function SessionsChart() {
     sessionsData = profileData?.user.averageSessions
   }
 
-  // make the component responsive
+  // makes the component responsive, ResponsiveContainer doesn't work on grid fr children
   const [width, setWidth] = useState(0)
   const deferredWidth = useDeferredValue(width)
 
@@ -28,7 +39,7 @@ function SessionsChart() {
 
   useEffect(() => {
     callHandleResize()
-    // the browser lies the first time
+    // the browser may lie the first time
     setTimeout(() => {
       callHandleResize()
     }, 250);
@@ -40,6 +51,7 @@ function SessionsChart() {
       window.removeEventListener('resize', callHandleResize)
     }
   })
+  // responsive code ends here
 
   return (
     <>

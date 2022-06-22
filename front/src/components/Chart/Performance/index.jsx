@@ -1,3 +1,14 @@
+/**
+ * Creates a Performance chart using Recharts
+ * contains score by activity kinds
+ * 
+ * @param { Object } profileData
+ * @param { Boolean } profileData.loader - displays a loader if true
+ * @param { Object } profileData.user - contains the API data ready to use
+ * 
+ * @returns { React.Component }
+ */
+
 import { useContext } from 'react'
 import { RadarChart, PolarGrid, Radar, PolarAngleAxis, PolarRadiusAxis} from 'recharts'
 import PropTypes from 'prop-types'

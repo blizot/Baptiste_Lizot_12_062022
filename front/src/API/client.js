@@ -16,10 +16,12 @@ async function client(path) {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
+  }).then(response => {
+    if (response.ok) return response.json()
+    return {error: response.status}
   })
 
-  const responseJSON = await response.json()
-  return responseJSON
+  return response
 }
 
 export default client

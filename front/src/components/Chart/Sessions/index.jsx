@@ -55,7 +55,7 @@ function SessionsChart() {
 
   return (
     <>
-      {profileData.loader ? (
+      {profileData.loader || sessionsData?.error ? (
         <Loader extraClasses="chart chart__sessions js_chart-sessions" />
       ) : (
         <article className="chart chart__sessions js_chart-sessions">

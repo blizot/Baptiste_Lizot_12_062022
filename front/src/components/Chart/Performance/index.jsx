@@ -29,7 +29,7 @@ function PerformanceChart() {
 
   return (
     <>
-      {profileData.loader ? (
+      {profileData.loader || performanceData?.error ? (
         <Loader extraClasses="chart chart__performance" />
       ) : (
         <article className="chart chart__performance">

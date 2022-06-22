@@ -10,7 +10,9 @@
 
 function formatActivityData(profileData) {
   const formatedActivityData = []
-  const activityData = profileData?.['user-activity']?.data.sessions
+  const activityData = profileData?.['user-activity']?.data?.sessions || profileData['user-activity']
+
+  if (activityData?.error) return activityData
 
   activityData.forEach((data) =>
     formatedActivityData.push({

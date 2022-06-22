@@ -33,7 +33,7 @@ function Macros() {
 
   return (
     <>
-      {profileData.loader ? (
+      {profileData.loader || macrosData?.error ? (
         <Loader extraClasses="macros" />
       ) : (
         <div className="macros">

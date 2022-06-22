@@ -107,7 +107,7 @@ function ActivityChart() {
 
   return (
     <>
-      {profileData.loader ? (
+      {profileData.loader || activityData?.error ? (
         <Loader extraClasses="chart chart__activity js_chart-activity" />
       ) : (
         <article className="chart chart__activity js_chart-activity">

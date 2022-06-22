@@ -10,7 +10,9 @@
 
 function formatMacrosData(profileData) {
   const formatedMacrosData = {}
-  const macrosData = profileData?.user?.data.keyData
+  const macrosData = profileData?.user?.data?.keyData || profileData.user
+
+  if (macrosData?.error) return macrosData
 
   Object.keys(macrosData).forEach(
     (key) => (formatedMacrosData[key.replace('Count', '')] = macrosData[key])

@@ -10,8 +10,10 @@
 
 function formatAverageSessionsData(profileData) {
   const formatedAverageSessionsData = []
-  const averageSessionsData = profileData?.['user-average-sessions']?.data?.sessions
+  const averageSessionsData = profileData?.['user-average-sessions']?.data?.sessions || profileData['user-average-sessions']
   const weekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
+  if (averageSessionsData?.error) return averageSessionsData
 
   averageSessionsData.forEach((data) =>
     formatedAverageSessionsData.push({

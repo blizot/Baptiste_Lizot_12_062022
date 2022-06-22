@@ -38,7 +38,7 @@ function ScoreChart() {
 
   return (
     <>
-      {profileData.loader ? (
+      {profileData.loader || score?.error ? (
         <Loader extraClasses="chart chart__score"/>
       ) : (
         <article className="chart chart__score">

@@ -26,9 +26,9 @@ function formatProfileData({ profileData, isProfileDataLoading }) {
   // if the API responds with data, then fill the user key
   if (Object.keys(profileData).length >= 1) {
     formatedData.user = {
-      name: profileData?.user?.data.userInfos.firstName,
+      name: profileData?.user?.data?.userInfos.firstName || profileData.user,
       macros: formatMacrosData(profileData),
-      score: profileData?.user?.data?.score || profileData?.user?.data.todayScore,
+      score: profileData?.user?.data?.score || profileData?.user?.data?.todayScore || profileData.user,
       activity: formatActivityData(profileData),
       averageSessions: formatAverageSessionsData(profileData),
       performance: formatPerformanceData(profileData),

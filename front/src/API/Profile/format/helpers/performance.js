@@ -10,8 +10,11 @@
 
 function formatPerformanceData(profileData) {
   const formatedPerformanceData = []
-  const performanceData = profileData?.['user-performance']?.data.data
-  const performanceDataKind = profileData?.['user-performance']?.data.kind
+  const performanceData = profileData?.['user-performance']?.data?.data || profileData['user-performance']
+  const performanceDataKind = profileData?.['user-performance']?.data?.kind || profileData['user-performance']
+
+  if (performanceData?.error) return performanceData
+  if (performanceDataKind?.error) return performanceDataKind
 
   performanceData.forEach((data) =>
     formatedPerformanceData.push({

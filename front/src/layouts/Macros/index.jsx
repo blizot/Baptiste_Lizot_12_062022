@@ -6,25 +6,22 @@ import Macro from '../../components/Macro'
 import Loader from '../../components/Loader'
 
 function Macros() {
-  const { profileData, isProfileDataLoading: loader } =
-    useContext(ProfileContext)
-  
-  let keyData = {}
-  if (Object.keys(profileData).length >= 1) {
-    keyData = profileData?.user?.data?.keyData
+  const { profileData } = useContext(ProfileContext)
+
+  let macrosData = {}
+  if (Object.keys(profileData.user).length >= 1) {
+    macrosData = profileData?.user.macros
   }
 
   return (
     <>
-      {loader ? (
-        <Loader extraClasses="macros"/>
+      {profileData.loader ? (
+        <Loader extraClasses="macros" />
       ) : (
         <div className="macros">
-          {Object.keys(keyData).map((element) => (
-            <Macro
-              key={element}
-              category={element.replace('Count', '')}
-              amount={keyData[element]}
+          {Object.keys(macrosData).map((macro) => (
+            <Macro key={macro} 
+              category={macro} amount={macrosData[macro]}
             />
           ))}
         </div>

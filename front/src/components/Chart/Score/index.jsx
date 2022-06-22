@@ -6,13 +6,11 @@ import { ProfileContext } from '../../../API/Profile'
 import Loader from '../../Loader'
 
 function ScoreChart() {
-  const { profileData, isProfileDataLoading: loader } =
-    useContext(ProfileContext)
+  const { profileData } = useContext(ProfileContext)
 
   let score = 0
-  if (Object.keys(profileData).length >= 1) {
-    score =
-      profileData?.user?.data?.score || profileData?.user?.data?.todayScore
+  if (Object.keys(profileData.user).length >= 1) {
+    score = profileData?.user.score
   }
 
   const finalAngle = 360 * score + 90
@@ -28,7 +26,7 @@ function ScoreChart() {
 
   return (
     <>
-      {loader ? (
+      {profileData.loader ? (
         <Loader extraClasses="chart chart__score"/>
       ) : (
         <article className="chart chart__score">

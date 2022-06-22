@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { RadarChart, PolarGrid, Radar, PolarAngleAxis, PolarRadiusAxis } from 'recharts'
+import { RadarChart, PolarGrid, Radar, PolarAngleAxis, PolarRadiusAxis} from 'recharts'
 
 import { ProfileContext } from '../../../API/Profile'
 
@@ -8,20 +8,16 @@ import Loader from '../../Loader'
 import frenchTranslation from '../../../assets/translations/french.json'
 
 function PerformanceChart() {
-
-  const { profileData, isProfileDataLoading: loader } =
-    useContext(ProfileContext)
+  const { profileData } = useContext(ProfileContext)
 
   let performanceData = {}
-  if (Object.keys(profileData).length >= 1) {
-    performanceData = profileData?.['user-performance']?.data?.data
-    const valueTags = profileData?.['user-performance']?.data?.kind
-    performanceData.forEach(d => d.tag = valueTags[d.kind])
+  if (Object.keys(profileData.user).length >= 1) {
+    performanceData = profileData?.user.performance
   }
 
   return (
     <>
-      {loader ? (
+      {profileData.loader ? (
         <Loader extraClasses="chart chart__performance" />
       ) : (
         <article className="chart chart__performance">
@@ -35,11 +31,11 @@ function PerformanceChart() {
             endAngle={210}
           >
             <PolarGrid />
-            <PolarAngleAxis 
-              dataKey="tag"
+            <PolarAngleAxis
+              dataKey="kind"
               tickFormatter={(item) => frenchTranslation[item]}
             />
-            <PolarRadiusAxis
+            <PolarRadiusAxis 
               axisLine={false}
               tick={false}
               domain={[0, 250]}
@@ -47,7 +43,7 @@ function PerformanceChart() {
             <Radar
               dataKey="value"
               className="chart__performance-fill"
-              />
+            />
           </RadarChart>
         </article>
       )}

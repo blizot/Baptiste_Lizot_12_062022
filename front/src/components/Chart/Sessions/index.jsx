@@ -10,14 +10,11 @@ import handleResize from '../responsive';
 import frenchTranslation from '../../../assets/translations/french.json'
 
 function SessionsChart() {
-  const { profileData, isProfileDataLoading: loader } =
-    useContext(ProfileContext)
+  const { profileData } = useContext(ProfileContext)
 
   let sessionsData = []
-  if (Object.keys(profileData).length >= 1) {
-    sessionsData = profileData?.['user-average-sessions']?.data?.sessions
-    const weekDay = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    sessionsData.forEach(d => d.weekDay = weekDay[d.day - 1])
+  if (Object.keys(profileData.user).length >= 1) {
+    sessionsData = profileData?.user.averageSessions
   }
 
   // make the component responsive
@@ -45,7 +42,7 @@ function SessionsChart() {
 
   return (
     <>
-      {loader ? (
+      {profileData.loader ? (
         <Loader extraClasses="chart chart__sessions js_chart-sessions" />
       ) : (
         <article className="chart chart__sessions js_chart-sessions">
@@ -61,7 +58,9 @@ function SessionsChart() {
               dataKey="weekDay"
               tickLine={false}
               axisLine={false}
-              tickFormatter={(item) => frenchTranslation.weekDays[item]?.charAt(0).toUpperCase()}
+              tickFormatter={
+                (item) => frenchTranslation.weekDays[item]?.charAt(0).toUpperCase()
+              }
             />
             <YAxis
               dataKey="sessionLength"

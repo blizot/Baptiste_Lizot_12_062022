@@ -4,7 +4,7 @@ import {ProfileContext} from '../../API/Profile'
 
 function Welcome() {
   const {profileData} = useContext(ProfileContext)
-  const name = profileData?.user?.data?.userInfos.firstName
+  const name = profileData?.user.name
 
   return (
     <div className="welcome">

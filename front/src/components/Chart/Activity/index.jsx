@@ -8,16 +8,11 @@ import Loader from '../../Loader'
 import handleResize from '../responsive'
 
 function ActivityChart() {
-  const { profileData, isProfileDataLoading: loader } =
-    useContext(ProfileContext)
+  const { profileData} = useContext(ProfileContext)
 
   let sessionsData = []
   if (Object.keys(profileData).length >= 1) {
-    sessionsData = profileData?.['user-activity']?.data?.sessions
-    sessionsData.forEach((d) => {
-      d.weight = d?.kilogram || d?.pound
-      d.burntCalories = d?.calories
-    })
+    sessionsData = profileData?.user.activity
   }
 
   // make the component responsive
@@ -99,7 +94,7 @@ function ActivityChart() {
 
   return (
     <>
-      {loader ? (
+      {profileData.loader ? (
         <Loader extraClasses="chart chart__activity js_chart-activity" />
       ) : (
         <article className="chart chart__activity js_chart-activity">

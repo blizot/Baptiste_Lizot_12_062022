@@ -1,42 +1,79 @@
-# Project 9 - Front-end Dashboard
+# SportSee
 
-This repo contains all the source code to run the micro API for the sports analytics dashboard SportSee.
+SportSee is a sport coaching startup.
+This repository is the new version of the app.
 
-## 1. General information
+## Table of contents
 
-To start this project, you are free to use Docker or not. In this documentation, we will see several methods to launch the project easily.
+- [Technologies](#technologies)
+- [Instalation](#instalation)
+  - [Front](#front-1)
+  - [Back](#back-without-docker) (without Docker)
+  - [Back](#back-with-docker) (with Docker)
+- [API Endpoints](#api-endpoints)
+- [How to contribute](#how-to-contribute)
+- [Next features](#next-features)
+- [Credits](#credits)
+- [License](#license)
 
-## 2. Project (**without Docker**)
+## Technologies
+### Front
 
-### 2.1 Prerequisites
+- [React](https://reactjs.org)
+- [React Router](https://reactrouter.com)
+- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+- [Recharts](https://recharts.org)
+- [SASS](https://sass-lang.com)
+- [JSDoc](https://jsdoc.app/index.html)
 
-- [NodeJS (**version 12.18**)](https://nodejs.org/en/)
+### Back
+
+- [NodeJS](https://nodejs.org)
+
+## Instalation
+
+**⚠️ To run the project you'll need to run both the front and back-end at the same time**.
+
+### Front
+#### Prerequisites
 - [Yarn](https://yarnpkg.com/)
-
-If you are working with several versions of NodeJS, we recommend you install [nvm](https://github.com/nvm-sh/nvm). This tool will allow you to easily manage your NodeJS versions.
-
-### 2.2 Launching the project
+#### Launching the front-end of the project
 
 - Fork the repository
-- Clone it on your computer.
-- The `yarn` command will allow you to install the dependencies.
-- The `yarn dev` command will allow you to run the micro API.
+- Clone it on your computer, and go on the `dev` branch
+- In a terminal, move to the `front` folder
+- `yarn` will install all the dependencies
+- `yarn start` will launch the front-end on your [`localhost:5000`](http://localhost:5000)
 
+**⚠️ Currently only the profile has been made, it can be found on the route: `/user/:userID`**.
 
-## 3. Project (**with Docker**)
+### Back (without Docker)
+#### Prerequisites
 
-### 2.1 Prerequisites
+- [NodeJS](https://nodejs.org/en/) (**v12.18** or above)
+- [Yarn](https://yarnpkg.com/)
+
+#### Launching the back-end of the project
+
+- Fork the repository
+- Clone it on your computer, and go on the `dev` branch
+- In a terminal, move to the `back` folder
+- `yarn` will install all the dependencies
+- `yarn dev` will launch the back-end on your [`localhost:3000`](http://localhost:3000)
+
+### Back (with Docker)
+#### Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-### 2.2 Starting the project
+#### Launching the back-end of the project
 
-- The `docker image build --no-cache -t micro-api .` command will allow you to build your image.
-- The `docker container run --name micro-api -p 3000:3000 -dt micro-api yarn` command will allow you to create your Docker container and run your image on port 3000.
-- The `docker container stop micro-api` command will allow you to stop your micro-api.
-- The `docker container rm micro-api` command will allow you to delete your micro-api container.
+- `docker image build --no-cache -t micro-api .` will build your image
+- `docker container run --name micro-api -p 3000:3000 -dt micro-api yarn` will create your Docker container and run your image on port 3000
+- `docker container stop micro-api` will stop your micro-api
+- `docker container rm micro-api` will delete your micro-api container
 
-### 2.3 Vscode and container remotes
+#### Vscode and container remotes
 
 Finally, if you have VsCode, you can easily launch your project in a docker environment.
 
@@ -44,92 +81,45 @@ You will need the [Remote Development extension](https://marketplace.visualstudi
 
 Once in the container, run the `yarn dev` command.
 
-## 4. Endpoints
+## API Endpoints
 
-### 4.1 Possible endpoints
-
-This project includes four endpoints that you will be able to use: 
-
-- `http://localhost:3000/user/${userId}` - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-- `http://localhost:3000/user/${userId}/activity` - retrieves a user's activity day by day with kilograms and calories.
-- `http://localhost:3000/user/${userId}/average-sessions` - retrieves the average sessions of a user per day. The week starts on Monday.
-- `http://localhost:3000/user/${userId}/performance` - retrieves a user's performance (energy, endurance, etc.).
+- `/user/:userId` — retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.)
+- `/user/:userId/activity` — retrieves a user's activity day by day with kilograms and calories
+- `/user/:userId/average-sessions` — retrieves the average sessions of a user per day. The week starts on Monday
+- `/user/:userId/performance` — retrieves a user's performance (energy, endurance, etc.)
 
 
-**Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.**
+**⚠️ Currently only two `userId` have been mocked: `12` and `18`**.
 
-### 4.2 Examples of queries
+### Examples of queries
 
-- `http://localhost:3000/user/12/performance` - Retrieves the performance of the user with id 12
-- `http://localhost:3000/user/18` - Retrieves user 18's main information.
+- `http://localhost:3000/user/12/performance` — retrieves user's 12 performance
+- `http://localhost:3000/user/18` — retrieves user 18's main information
 
-# Getting Started with Create React App
+## How to contribute
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Create features in `.jsx` functional files, they can be assisted with `.js` files.
+- Every function file must be accompanied by a JSDoc.
+- Style must be in separate `.scss` files in the `assets` folder.
+- Add comments along your code when necesarry.
+- New features requests must be submitted using Pull Requests.
 
-## Available Scripts
+## Next features
 
-In the project directory, you can run:
+- a better fetch API client, supporting multiple methods, body, etc.
+- better handling of the errors; currently displaying the loader instead
+- rest of the app; currently only has the user profile
 
-### `npm start`
+## Credits
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Nicolas Patschkowski
+- Thomas Dimnet
+- Clara Corazza
+- Yassin Hammou Ouali
+- Emdsh
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## License
 
-### `npm test`
+SportSee, all rights reserved — **A FAKE COMPANY**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Actually made as a project to learn React and API.

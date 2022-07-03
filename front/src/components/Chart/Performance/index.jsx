@@ -20,12 +20,15 @@ import Loader from '../../Loader'
 
 import frenchTranslation from '../../../assets/translations/french.json'
 
+import APIMock from '../../../API/Profile/mock/profile.json'
+const { REACT_APP_API_MOCK } = process.env
+
 function PerformanceChart() {
   const { profileData } = useContext(ProfileContext)
 
   let performanceData = {}
   if (Object.keys(profileData.user).length >= 1) {
-    performanceData = profileData?.user.performance
+    performanceData = REACT_APP_API_MOCK === 'true' ? APIMock.user.performance : profileData?.user.performance
   }
 
   return (

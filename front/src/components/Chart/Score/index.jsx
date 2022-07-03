@@ -18,12 +18,15 @@ import { ProfileContext } from '../../../API/Profile'
 
 import Loader from '../../Loader'
 
+import APIMock from '../../../API/Profile/mock/profile.json'
+const { REACT_APP_API_MOCK } = process.env
+
 function ScoreChart() {
   const { profileData } = useContext(ProfileContext)
 
   let score = 0
   if (Object.keys(profileData.user).length >= 1) {
-    score = profileData?.user.score
+    score = REACT_APP_API_MOCK === 'true' ? APIMock.user.score : profileData?.user.score
   }
 
   const finalAngle = 360 * score + 90

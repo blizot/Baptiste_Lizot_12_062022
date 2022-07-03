@@ -11,6 +11,7 @@ This repository is the new version of the app.
   - [Back](#back-without-docker) (without Docker)
   - [Back](#back-with-docker) (with Docker)
 - [API Endpoints](#api-endpoints)
+- [API Mock](#api-mock)
 - [How to contribute](#how-to-contribute)
 - [Next features](#next-features)
 - [Credits](#credits)
@@ -41,7 +42,7 @@ This repository is the new version of the app.
 
 - Fork the repository
 - Clone it on your computer, and go on the `dev` branch
-- In a terminal, move to the `front` folder
+- In a terminal, move to the `front` directory
 - `yarn` will install all the dependencies
 - `yarn start` will launch the front-end on your [`localhost:5000`](http://localhost:5000)
 
@@ -57,7 +58,7 @@ This repository is the new version of the app.
 
 - Fork the repository
 - Clone it on your computer, and go on the `dev` branch
-- In a terminal, move to the `back` folder
+- In a terminal, move to the `back` directory
 - `yarn` will install all the dependencies
 - `yarn dev` will launch the back-end on your [`localhost:3000`](http://localhost:3000)
 
@@ -96,11 +97,28 @@ Once in the container, run the `yarn dev` command.
 - `http://localhost:3000/user/12/performance` — retrieves user's 12 performance
 - `http://localhost:3000/user/18` — retrieves user 18's main information
 
+## API Mock
+
+ - Import `REACT_APP_API_MOCK` from `process.env` and the JSON file directly inside the React component
+ - Define the variable you'll be using in the component as such:
+```javascript
+const variable = REACT_APP_API_MOCK === 'true' ? JSON.path : API.path
+```
+- In the `.env.development` file set the `REACT_APP_API_MOCK` variable to `true`
+
+Set `REACT_APP_API_MOCK` back to `false` when you want to use the API itself, not mock it.
+
+**⚠️ Every time you change the value of `REACT_APP_API_MOCK` you need to restart the server with `yarn start` in the `front` directory**.
+
+### Best practice
+
+Create the JSON mock file in a `API/subDirectory/mock` directory.
+
 ## How to contribute
 
 - Create features in `.jsx` functional files, they can be assisted with `.js` files.
 - Every function file must be accompanied by a JSDoc.
-- Style must be in separate `.scss` files in the `assets` folder.
+- Style must be in separate `.scss` files in the `assets` directory.
 - Add comments along your code when necesarry.
 - New features requests must be submitted using Pull Requests.
 

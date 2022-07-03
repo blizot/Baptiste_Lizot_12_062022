@@ -22,12 +22,15 @@ import handleResize from '../responsive';
 
 import frenchTranslation from '../../../assets/translations/french.json'
 
+import APIMock from '../../../API/Profile/mock/profile.json'
+const { REACT_APP_API_MOCK } = process.env
+
 function SessionsChart() {
   const { profileData } = useContext(ProfileContext)
 
   let sessionsData = []
   if (Object.keys(profileData.user).length >= 1) {
-    sessionsData = profileData?.user.averageSessions
+    sessionsData = REACT_APP_API_MOCK === 'true' ? APIMock.user.averageSessions : profileData?.user.averageSessions
   }
 
   // makes the component responsive, ResponsiveContainer doesn't work on grid fr children

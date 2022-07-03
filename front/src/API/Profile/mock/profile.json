@@ -1,0 +1,106 @@
+{
+  "loader": false,
+  "user": {
+    "name": "API_MOCK",
+    "macros": {
+      "calorie": 1720,
+      "protein": 80,
+      "carbohydrate": 120,
+      "lipid": 90
+    },
+    "score": 0.74,
+    "activity": [
+      {
+        "day": "2020-07-09",
+        "burntCalories": 200,
+        "weight": 70.5
+      },
+      {
+        "day": "2020-07-10",
+        "burntCalories": 220,
+        "weight": 70.8
+      },
+      {
+        "day": "2020-07-11",
+        "burntCalories": 280,
+        "weight": 71
+      },
+      {
+        "day": "2020-07-12",
+        "burntCalories": 300,
+        "weight": 70.2
+      },
+      {
+        "day": "2020-07-13",
+        "burntCalories": 160,
+        "weight": 70.1
+      },
+      {
+        "day": "2020-07-14",
+        "burntCalories": 162,
+        "weight": 69.8
+      },
+      {
+        "day": "2020-07-15",
+        "burntCalories": 310,
+        "weight": 69.5
+      }
+    ],
+    "averageSessions": [
+      {
+        "sessionLength": 10,
+        "weekDay": "Monday"
+      },
+      {
+        "sessionLength": 20,
+        "weekDay": "Tuesday"
+      },
+      {
+        "sessionLength": 30,
+        "weekDay": "Wednesday"
+      },
+      {
+        "sessionLength": 40,
+        "weekDay": "Thursday"
+      },
+      {
+        "sessionLength": 20,
+        "weekDay": "Friday"
+      },
+      {
+        "sessionLength": 30,
+        "weekDay": "Saturday"
+      },
+      {
+        "sessionLength": 50,
+        "weekDay": "Sunday"
+      }
+    ],
+    "performance": [
+      {
+        "value": 200,
+        "kind": "intensity"
+      },
+      {
+        "value": 220,
+        "kind": "speed"
+      },
+      {
+        "value": 180,
+        "kind": "strength"
+      },
+      {
+        "value": 150,
+        "kind": "endurance"
+      },
+      {
+        "value": 200,
+        "kind": "energy"
+      },
+      {
+        "value": 240,
+        "kind": "cardio"
+      }
+    ]
+  }
+}

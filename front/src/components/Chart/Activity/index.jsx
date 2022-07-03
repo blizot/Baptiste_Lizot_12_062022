@@ -20,12 +20,15 @@ import Loader from '../../Loader'
 
 import handleResize from '../responsive'
 
+import APIMock from '../../../API/Profile/mock/profile.json'
+const { REACT_APP_API_MOCK } = process.env
+
 function ActivityChart() {
   const { profileData } = useContext(ProfileContext)
 
   let activityData = []
   if (Object.keys(profileData).length >= 1) {
-    activityData = profileData?.user.activity
+    activityData = REACT_APP_API_MOCK === 'true' ? APIMock.user.activity : profileData?.user.activity
   }
 
   // makes the component responsive, ResponsiveContainer doesn't work on grid fr children

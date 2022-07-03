@@ -13,9 +13,13 @@ import PropTypes from 'prop-types'
 
 import { ProfileContext } from '../../API/Profile'
 
+import APIMock from '../../API/Profile/mock/profile.json'
+const { REACT_APP_API_MOCK } = process.env
+
 function Welcome() {
   const { profileData } = useContext(ProfileContext)
-  const name = profileData?.user.name
+
+  const name = REACT_APP_API_MOCK === 'true' ? APIMock.user.name : profileData?.user.name
 
   return (
     <div className="welcome">
